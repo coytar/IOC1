@@ -10,10 +10,12 @@ namespace IOC1
 {
     public class Button1PressCommand : ICommand
     {
+        MainWindowModel model;
         ILogger logger;
 
-        public Button1PressCommand(ILogger logger)
+        public Button1PressCommand(MainWindowModel model, ILogger logger)
         {
+            this.model = model;
             this.logger = logger;
         }
 
@@ -26,7 +28,9 @@ namespace IOC1
 
         public void Execute(object parameter)
         {
-            logger.Info("Button1 clicked");
+            DateTime dt = DateTime.Now;
+            model.Name += dt.Second;
+            logger.Info("Button1 clicked " + dt.Second);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace IOC1
             container.RegisterType<IMainWindowModel, MainWindowModel>();
             container.RegisterType<ILogger>(new InjectionFactory(l => SetupLogger("Test")));
 
-            // AD the container to the application resource
+            // Add the container to the application resource
             Application.Current.Resources.Add("IoC", container);
 
             var mainWindow = container.Resolve<MainWindow>(); // Creating Main window

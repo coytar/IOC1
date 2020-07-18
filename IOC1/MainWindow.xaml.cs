@@ -25,6 +25,7 @@ namespace IOC1
         {
             InitializeComponent();
 
+            // Get the Unity Container from the application resource
             UnityContainer container = (UnityContainer)Application.Current.Resources["IoC"];
             var model = container.Resolve<MainWindowModel>(); // Creating Main window
             DataContext = model;
